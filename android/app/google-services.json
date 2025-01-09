@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1044782632175",
+    "project_id": "lpmimanage-a057b",
+    "storage_bucket": "lpmimanage-a057b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044782632175:android:f2692894bf78ee73f3df1a",
+        "android_client_info": {
+          "package_name": "com.example.lpmi_manag"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQGmfMYgpjSUBFwKjl09_TKWXiIhV7pOE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
