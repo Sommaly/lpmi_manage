@@ -66,7 +66,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     child: TextField(
                       controller: authController.emailController,
                       decoration: InputDecoration(
-                        labelText: 'E-mail',
+                        labelText: 'E-mail*',
                         border: OutlineInputBorder(),
                         prefixIcon: Icon(Icons.email),
                       ),
@@ -81,7 +81,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     child: TextField(
                       controller: authController.passwordController,
                       decoration: InputDecoration(
-                        labelText: 'Mot de passe',
+                        labelText: 'Mot de passe*',
                         border: OutlineInputBorder(),
                         prefixIcon: Icon(Icons.lock),
                       ),

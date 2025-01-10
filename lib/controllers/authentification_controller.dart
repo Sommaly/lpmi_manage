@@ -16,16 +16,26 @@ class AuthentificationController extends ChangeNotifier {
   Future<void> createUserWithEmailAndPassword(
       String email, String password, BuildContext context) async {
     try {
-      UserCredential userCredential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password);
-      notifyListeners();
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => LoginScreen()),
-      );
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Inscription réussie !')),
-      );
+      if(email == ''){
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Email obligatoire')),
+        );
+      }else if (password == ''){
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Mot de passe obligatoire')),
+        );
+      }else{
+        UserCredential userCredential = await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(email: email, password: password);
+        notifyListeners();
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => LoginScreen()),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Inscription réussie ! Connectez-vous')),
+        );
+      }
     } catch (e) {
       print("Erreur $e");
     }
@@ -48,5 +58,13 @@ class AuthentificationController extends ChangeNotifier {
         SnackBar(content: Text('Les identifiants ne sont pas reconnus')),
       );
     }
+  }
+
+  Future<void> signOut(BuildContext context) async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => IntroductionScreen()),
+    );
   }
 }
