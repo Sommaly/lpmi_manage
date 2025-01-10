@@ -20,11 +20,11 @@ class AuthentificationController extends ChangeNotifier {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Email obligatoire')),
         );
-      }else if (password == ''){
+      }else if (password.length < 6){
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Mot de passe obligatoire')),
+          SnackBar(content: Text('Le mot de passe doit contenir au moins 6 caractères')),
         );
-      }else{
+      } else{
         UserCredential userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: email, password: password);
         notifyListeners();
