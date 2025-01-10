@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lpmi_manage/screens/home_screen.dart';
 import 'package:lpmi_manage/screens/login_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../main.dart';
 
@@ -67,4 +68,17 @@ class AuthentificationController extends ChangeNotifier {
       MaterialPageRoute(builder: (context) => IntroductionScreen()),
     );
   }
+
+
+
+  Future<int> getUserCount() async {
+    try {
+      QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('users').get();
+      return snapshot.size;
+    } catch (e) {
+      print("Erreur lors de la récupération du nombre d'utilisateurs: $e");
+      return 0;
+    }
+  }
+
 }

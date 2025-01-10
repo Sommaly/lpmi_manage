@@ -5,6 +5,7 @@ import 'package:lpmi_manage/screens/utilisateurs_screen.dart';
 
 import '../controllers/authentification_controller.dart';
 import 'accueil_screen.dart';
+import 'bar_chart_sample_3.dart';
 import 'offres_screen.dart';
 
 class HomeScreen extends StatefulWidget {
