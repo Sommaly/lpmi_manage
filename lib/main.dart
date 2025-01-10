@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:lpmi_manage/controllers/authentification_controller.dart';
+import 'package:lpmi_manage/screens/home_screen.dart';
 import 'package:lpmi_manage/screens/login_screen.dart';
 import 'package:lpmi_manage/screens/register_screen.dart';
 import 'package:provider/provider.dart';
@@ -19,13 +21,21 @@ void main() async{
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  Widget _getHomeScreen() {
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    final User? user = auth.currentUser;
+    if (user != null) {
+      return HomeScreen();
+    } else {
+      return IntroductionScreen();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthentificationController())
-        //ChangeNotifierProvider(create: (_) => AuthentificationController())
       ],
       child: MaterialApp(
         title: 'LPMI Manage',
@@ -33,7 +43,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: IntroductionScreen(),
+        home: _getHomeScreen(),
       ),
     );
   }
