@@ -50,32 +50,6 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
-            /*ElevatedButton(
-              onPressed: () {
-                authController
-                    .signInWithEmailAndPassword(
-                        authController.emailController.text,
-                        authController.passwordController.text)
-                    .then((value) async {
-                  if (value == true) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Ok inscription')),
-                    );
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('echec')),
-                    );
-                  }
-                });
-              },
-              style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-              ),
-              child: Text(
-                "Se COOOOOOOOOOOOO",
-                style: TextStyle(fontSize: 18),
-              ),
-            ),*/
             CustomButton(
               btnName: 'Se connecter',
               controller: () {

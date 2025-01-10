@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:lpmi_manage/screens/home_screen.dart';
 import 'package:lpmi_manage/screens/login_screen.dart';
 
+import '../main.dart';
+
 class AuthentificationController extends ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final TextEditingController emailController = TextEditingController();

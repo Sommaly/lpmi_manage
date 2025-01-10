@@ -9,6 +9,13 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Text(
+              "Page Home",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
           ],
         ),
       ),
